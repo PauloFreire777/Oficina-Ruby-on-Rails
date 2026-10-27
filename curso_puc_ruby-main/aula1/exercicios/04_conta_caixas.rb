@@ -10,9 +10,9 @@
 # Verifique com:  ruby bin/verificar aula1 04
 
 def caixas_de(caixas_por_produtor, nome)
-  # escreva aqui
+  caixas_por_produtor[nome] || 0
 end
 
 def precisa_de_banca_extra?(caixas_por_produtor, nome)
-  # escreva aqui
+  caixas_de(caixas_por_produtor, nome) > 10
 end

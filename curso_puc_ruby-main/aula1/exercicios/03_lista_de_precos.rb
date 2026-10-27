@@ -16,13 +16,10 @@ def nomes(produtos)
   lista
 end
 
-
 def mais_caro(produtos)
-
+  produtos.max_by { |produto| produto[:preco_em_centavos] }
 end
 
 def total_em_reais(produtos)
-#   pprodutos.each do |produto|
-#   puts "Produto: #{produto}"
-# end
+  produtos.sum { |produto| produto[:preco_em_centavos] } / 100.0
 end
