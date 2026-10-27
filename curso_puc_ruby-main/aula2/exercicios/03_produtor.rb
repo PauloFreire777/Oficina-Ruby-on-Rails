@@ -28,6 +28,6 @@ class Produtor
   end
 
   def to_s
-    "#{@nome} (#{@cidade})"
+    "#{nome} (#{cidade})"
   end
 end

@@ -27,7 +27,5 @@ end
 
 def ticket_medio_em_reais(vendas)
   return 0.0 if vendas.empty?
-  
-  total_centavos = vendas.sum { |venda| venda[:valor_em_centavos] }
-  (total_centavos / 100.0) / vendas.size
+  vendas.sum { |venda| venda[:valor_em_centavos] }.fdiv(vendas.size) / 100.0
 end

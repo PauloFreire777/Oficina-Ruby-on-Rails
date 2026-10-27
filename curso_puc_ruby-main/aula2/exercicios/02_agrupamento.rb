@@ -14,10 +14,8 @@
 
 def agrupar_por_categoria(produtos)
   resultado = Hash.new { |hash, chave| hash[chave] = [] }
-  
   produtos.each do |produto|
     resultado[produto[:categoria]] << produto[:nome]
   end
-  
   resultado
 end
