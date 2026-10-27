@@ -1,0 +1,11 @@
+# EXERCÍCIO 1: interpolação e método
+#
+# Escreva o método `saudacao` que recebe o nome de um produtor e devolve
+# a frase:  "Bom dia, Marta! Boas-vindas à feira."
+#
+# Verifique com:  ruby bin/verificar aula1 01
+
+def saudacao(nome)
+  puts "Bom dia, #{nome}! Boas-vindas à feira."
+  return "Bom dia, #{nome}! Boas-vindas à feira."
+end
