@@ -11,5 +11,23 @@
 # Verifique com:  ruby bin/verificar aula2 03
 
 class Produtor
-  # escreva aqui
+  attr_reader :nome, :cidade, :produtos
+
+  def initialize(nome, cidade)
+    @nome = nome
+    @cidade = cidade
+    @produtos = []
+  end
+
+  def adicionar_produto(nome, preco_em_centavos)
+    @produtos << { nome: nome, preco_em_centavos: preco_em_centavos }
+  end
+
+  def total_em_reais
+    @produtos.sum { |produto| produto[:preco_em_centavos] } / 100.0
+  end
+
+  def to_s
+    "#{@nome} (#{@cidade})"
+  end
 end

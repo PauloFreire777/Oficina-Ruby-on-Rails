@@ -11,17 +11,23 @@
 # Verifique com:  ruby bin/verificar aula2 01
 
 def produtos_vendidos(vendas)
-  # escreva aqui
+  vendas.map { |venda| venda[:produto] }.uniq
 end
 
 def total_do_produtor(vendas, produtor)
-  # escreva aqui
+  vendas.select { |venda| venda[:produtor] == produtor }
+        .sum { |venda| venda[:valor_em_centavos] }
 end
 
 def total_por_produtor(vendas)
-  # escreva aqui
+  vendas.group_by { |venda| venda[:produtor] }.transform_values do |vendas_do_produtor|
+    vendas_do_produtor.sum { |venda| venda[:valor_em_centavos] }
+  end
 end
 
 def ticket_medio_em_reais(vendas)
-  # escreva aqui
+  return 0.0 if vendas.empty?
+  
+  total_centavos = vendas.sum { |venda| venda[:valor_em_centavos] }
+  (total_centavos / 100.0) / vendas.size
 end

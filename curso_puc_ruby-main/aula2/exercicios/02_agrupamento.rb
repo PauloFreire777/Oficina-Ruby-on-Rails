@@ -13,5 +13,11 @@
 # Verifique com:  ruby bin/verificar aula2 02
 
 def agrupar_por_categoria(produtos)
-  # escreva aqui
+  resultado = Hash.new { |hash, chave| hash[chave] = [] }
+  
+  produtos.each do |produto|
+    resultado[produto[:categoria]] << produto[:nome]
+  end
+  
+  resultado
 end
