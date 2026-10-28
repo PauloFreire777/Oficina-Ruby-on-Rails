@@ -13,9 +13,15 @@
 # Verifique com:  ruby bin/verificar aula2 02
 
 def agrupar_por_categoria(produtos)
-  resultado = Hash.new { |hash, chave| hash[chave] = [] }
+  resultado = {}
+  
   produtos.each do |produto|
+    if resultado[produto[:categoria]] == nil
+      resultado[produto[:categoria]] = []
+    end
+    
     resultado[produto[:categoria]] << produto[:nome]
   end
+  
   resultado
 end

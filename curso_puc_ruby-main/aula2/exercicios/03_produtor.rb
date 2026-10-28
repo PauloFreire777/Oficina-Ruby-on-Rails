@@ -24,10 +24,16 @@ class Produtor
   end
 
   def total_em_reais
-    @produtos.sum { |produto| produto[:preco_em_centavos] } / 100.0
+    total_centavos = 0
+    
+    @produtos.each do |produto|
+      total_centavos += produto[:preco_em_centavos]
+    end
+    
+    total_centavos / 100.0
   end
 
   def to_s
-    "#{nome} (#{cidade})"
+    "#{@nome} (#{@cidade})"
   end
 end

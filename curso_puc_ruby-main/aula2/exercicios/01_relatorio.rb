@@ -10,22 +10,49 @@
 #
 # Verifique com:  ruby bin/verificar aula2 01
 
-def produtos_vendidos(vendas)
-  vendas.map { |venda| venda[:produto] }.uniq
+def vendas 
+  [
+  { produtor: "Horta da Vila",   valor_em_centavos: 1200 },
+  { produtor: "Sítio Boa Terra", valor_em_centavos: 800 },
+  { produtor: "Horta da Vila",   valor_em_centavos: 450 }
+]
 end
 
-def total_do_produtor(vendas, produtor)
-  vendas.select { |venda| venda[:produtor] == produtor }
-        .sum { |venda| venda[:valor_em_centavos] }
+def produtos_vendidos(vendas)
+  nomes = []
+  vendas.each do |venda|
+      unless nomes.include?(venda[:produto])
+        nomes << venda[:produto]
+      end
+  end
+  nomes
+end
+
+def total_do_produtor(vendas, produtor) 
+  total = 0
+  vendas.each do |venda|
+    if venda[:produtor] == produtor
+      total += venda[:valor_em_centavos]
+    end
+  end
+  total
 end
 
 def total_por_produtor(vendas)
-  vendas.group_by { |venda| venda[:produtor] }.transform_values do |vendas_do_produtor|
-    vendas_do_produtor.sum { |venda| venda[:valor_em_centavos] }
+  
+  totais = Hash.new(0)
+  vendas.each do |venda|
+    totais[venda[:produtor]] += venda[:valor_em_centavos]
   end
+  totais
 end
 
 def ticket_medio_em_reais(vendas)
   return 0.0 if vendas.empty?
-  vendas.sum { |venda| venda[:valor_em_centavos] }.fdiv(vendas.size) / 100.0
+  total_centavos = 0
+  vendas.each do |venda|
+    total_centavos += venda[:valor_em_centavos]
+  end
+  
+  (total_centavos / 100.0) / vendas.size
 end
