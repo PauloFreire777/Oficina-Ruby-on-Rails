@@ -31,9 +31,11 @@
 # Verifique com:  ruby bin/verificar aula3 01
 
 def buscar_por_id(produtores, id)
-  # escreva aqui
+  produtores.find { |produtor| produtor[:id] == id }
 end
 
 def nomes_da_cidade(produtores, cidade)
-  # escreva aqui
+  filtrados = produtores.select { |produtor| produtor[:cidade] == cidade }
+  
+  filtrados.map { |produtor| produtor[:nome] }
 end

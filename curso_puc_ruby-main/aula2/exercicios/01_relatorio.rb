@@ -10,7 +10,7 @@
 #
 # Verifique com:  ruby bin/verificar aula2 01
 
-def vendas 
+def vendas      
   [
   { produtor: "Horta da Vila",   valor_em_centavos: 1200 },
   { produtor: "Sítio Boa Terra", valor_em_centavos: 800 },
