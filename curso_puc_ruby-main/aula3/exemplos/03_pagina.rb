@@ -24,13 +24,31 @@ produtos = [
   { nome: "alface",  preco_em_centavos: 450 },
   { nome: "tomate",  preco_em_centavos: 990 },
   { nome: "cenoura", preco_em_centavos: 620 },
-  { nome: "mel",     preco_em_centavos: 2400 }
+  { nome: "mel",     preco_em_centavos: 2400 },
+  { nome: "limão", preco_em_centavos: 777 },
+  { nome: "amendoin", preco_em_centavos: 555 },
+  { nome: "calabresa", preco_em_centavos: 666 },
+  { nome: "salgado", preco_em_centavos: 77 },
+  { nome: "ChupaGadaiada", preco_em_centavos: 13 }
+]
+
+# A página: a lista de hashes do exemplo 01 (só as colunas que a página usa).
+clientes = [
+  { nome: "João",  idade: 60 },
+  { nome: "Jorge",  idade: 59 },
+  { nome: "Leandra", idade: 80 },
+  { nome: "Luiz Inácio Lula da Silva",     idade: 37 },
+  { nome: "Geraldo", idade: 20 },
+  { nome: "Guilherme", idade: 25 },
+  { nome: "Ana Elisa", idade: 75 },
+  { nome: "Janones", idade: 68 },
+  { nome: "Jones Manoel", idade: 13 }
 ]
 
 # __dir__ é a pasta deste arquivo. File.join monta o caminho a partir dela
 # (".." sobe uma pasta). File.read lê o arquivo inteiro como um texto só.
-view = File.join(__dir__, "..", "views", "produtos", "index.html.erb")
-html = ERB.new(File.read(view)).result_with_hash(produtos: produtos)
+view = File.join(__dir__, "..", "views", "index.html.erb")
+html = ERB.new(File.read(view)).result_with_hash(produtos: produtos, clientes: clientes)
 
 # File.write grava o texto em um arquivo, criando ou trocando.
 saida = File.join(__dir__, "..", "pagina.html")

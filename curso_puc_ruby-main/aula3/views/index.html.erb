@@ -11,5 +11,12 @@
       <li><%= produto[:nome] %>: R$ <%= format("%.2f", produto[:preco_em_centavos] / 100.0) %></li>
     <% end %>
   </ul>
+  
+  <h1>Dados dos Clientes</h1>
+  <ul>
+    <% clientes.each do |cliente| %>
+      <li><%= cliente[:nome] %>: idade <%= cliente[:idade] %></li>
+    <% end %>
+  </ul>
 </body>
 </html>
